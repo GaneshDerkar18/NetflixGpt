@@ -8,7 +8,7 @@ import {
 import { auth } from "../utils/firebase";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { userAvatar } from "../utils/constant";
+import { Background_URL, userAvatar } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -105,16 +105,12 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div>
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/39cd71fa-e2b4-49f1-aa5e-b93602b28c59/web/IN-en-20250428-TRIFECTA-perspective_760c6d52-3da5-44d7-bb30-ad2920b7021a_large.jpg"
-          className="absolute"
-          alt="background image"
-        />
+      <div className="absolute">
+        <img src={Background_URL} className="h-screen object-cover" alt="background image" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute p-12 w-3/12 my-36 mx-auto right-0 left-0 bg-black text-white bg-opacity-80"
+        className="absolute p-12 w-full md:w-3/12 my-36 mx-auto right-0 left-0 bg-black text-white bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
